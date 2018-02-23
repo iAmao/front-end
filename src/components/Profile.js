@@ -132,7 +132,8 @@ class Profile extends React.Component {
 
               <div className="articles-toggle">
                 <img src={profile.image} className="user-img" alt={profile.username} height="40"/>
-                <h4>{profile.username}</h4>
+                <h6>{profile.firstname} {profile.lastname}</h6>
+                <h10>@{profile.username}</h10>
                 <p>{profile.bio}</p>
 
                 <EditProfileSettings isUser={isUser} />
