@@ -119,31 +119,27 @@ class Profile extends React.Component {
 
     return (
       <div className="profile-page">
-
-
-        
-
-
         <div className="container">
           <div className="row">
 
-            <div className="col-md-2">
+            <div className="col-md-3">
               <div className="sidebar">
 
-              <div className="articles-toggle">
-                <img src={profile.image} className="user-img" alt={profile.username} height="40"/>
-                <h6>{profile.firstname} {profile.lastname}</h6>
-                <h10>@{profile.username}</h10>
-                <p>{profile.bio}</p>
+                <div className="articles-toggle">
+                  <img src={profile.image} className="user-img" alt={profile.username} height="100"/>
+                  <h5>{profile.firstname} {profile.lastname} | @{profile.username}</h5>
+                  <p>{profile.bio}</p>
+                  <EditProfileSettings isUser={isUser} />
+                  <FollowUserButton
+                    isUser={isUser}
+                    user={profile}
+                    follow={this.props.onFollow}
+                    unfollow={this.props.onUnfollow}
+                    />
+                  <hr></hr>
+                </div>
 
-                <EditProfileSettings isUser={isUser} />
-                <FollowUserButton
-                  isUser={isUser}
-                  user={profile}
-                  follow={this.props.onFollow}
-                  unfollow={this.props.onUnfollow}
-                  />
-              </div>
+                <h5>Recent Logs</h5>
 
               </div>
             </div>
@@ -160,7 +156,6 @@ class Profile extends React.Component {
                 articles={this.props.articles}
                 articlesCount={this.props.articlesCount}
                 state={this.props.currentPage} />
-
             </div>
 
 

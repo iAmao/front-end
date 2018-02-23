@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import agent from '../agent';
 import { connect } from 'react-redux';
 import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes';
+import TextTruncate from 'react-text-truncate';
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
@@ -59,7 +60,14 @@ const ArticlePreview = props => {
       <Link to={`/article/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
         <p>{article.description}</p>
-        <span>Read more...</span>
+        <p>
+          <TextTruncate
+            line={10}
+            truncateText=" ... "
+            text={article.body}
+            textTruncateChild={<a href="#">Read More</a>}
+          />
+        </p>
         <ul className="tag-list">
           {
             article.tagList.map(tag => {
