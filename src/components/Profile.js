@@ -16,7 +16,7 @@ const EditProfileSettings = props => {
       <Link
         to="/settings"
         className="btn btn-sm btn-outline-secondary action-btn">
-        <i className="ion-gear-a"></i> Edit Profile Settings
+        <i className="ion-gear-a"></i> Edit Profile
       </Link>
     );
   }
@@ -50,7 +50,7 @@ const FollowUserButton = props => {
       onClick={handleClick}>
       <i className="ion-plus-round"></i>
       &nbsp;
-      {props.user.following ? 'Unfollow' : 'Follow'} {props.user.username}
+      {props.user.following ? 'Unfollow' : 'Follow'}
     </button>
   );
 };
@@ -120,12 +120,18 @@ class Profile extends React.Component {
     return (
       <div className="profile-page">
 
-        <div className="user-info">
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12 col-md-10 offset-md-1">
 
-                <img src={profile.image} className="user-img" alt={profile.username} />
+        
+
+
+        <div className="container">
+          <div className="row">
+
+            <div className="col-md-2">
+              <div className="sidebar">
+
+              <div className="articles-toggle">
+                <img src={profile.image} className="user-img" alt={profile.username} height="40"/>
                 <h4>{profile.username}</h4>
                 <p>{profile.bio}</p>
 
@@ -136,16 +142,13 @@ class Profile extends React.Component {
                   follow={this.props.onFollow}
                   unfollow={this.props.onUnfollow}
                   />
+              </div>
 
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="container">
-          <div className="row">
 
-            <div className="col-xs-12 col-md-10 offset-md-1">
+            <div className="col-md">
 
               <div className="articles-toggle">
                 {this.renderTabs()}
@@ -156,7 +159,9 @@ class Profile extends React.Component {
                 articles={this.props.articles}
                 articlesCount={this.props.articlesCount}
                 state={this.props.currentPage} />
+
             </div>
+
 
           </div>
         </div>

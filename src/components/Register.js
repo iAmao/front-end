@@ -12,14 +12,16 @@ import {
 const mapStateToProps = state => ({ ...state.auth });
 
 const mapDispatchToProps = dispatch => ({
+  onChangeName: value =>
+    dispatch({ type: UPDATE_FIELD_AUTH, key: 'name', value }),
   onChangeEmail: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'email', value }),
   onChangePassword: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'password', value }),
   onChangeUsername: value =>
     dispatch({ type: UPDATE_FIELD_AUTH, key: 'username', value }),
-  onSubmit: (username, email, password) => {
-    const payload = agent.Auth.register(username, email, password);
+  onSubmit: (name, username, email, password) => {
+    const payload = agent.Auth.register(name, username, email, password);
     dispatch({ type: REGISTER, payload })
   },
   onUnload: () =>
@@ -32,9 +34,10 @@ class Register extends React.Component {
     this.changeEmail = ev => this.props.onChangeEmail(ev.target.value);
     this.changePassword = ev => this.props.onChangePassword(ev.target.value);
     this.changeUsername = ev => this.props.onChangeUsername(ev.target.value);
-    this.submitForm = (username, email, password) => ev => {
+    this.changeName = ev => this.props.onChangeName(ev.target.value);
+    this.submitForm = (name, username, email, password) => ev => {
       ev.preventDefault();
-      this.props.onSubmit(username, email, password);
+      this.props.onSubmit(name, username, email, password);
     }
   }
 
@@ -43,6 +46,7 @@ class Register extends React.Component {
   }
 
   render() {
+    const name =this.props.name;
     const email = this.props.email;
     const password = this.props.password;
     const username = this.props.username;
@@ -62,8 +66,17 @@ class Register extends React.Component {
 
               <ListErrors errors={this.props.errors} />
 
-              <form onSubmit={this.submitForm(username, email, password)}>
+              <form onSubmit={this.submitForm(name, username, email, password)}>
                 <fieldset>
+
+                  <fieldset className="form-group">
+                    <input
+                      className="form-control form-control-lg"
+                      type="text"
+                      placeholder="Name"
+                      value={this.props.name}
+                      onChange={this.changeName} />
+                  </fieldset>
 
                   <fieldset className="form-group">
                     <input
