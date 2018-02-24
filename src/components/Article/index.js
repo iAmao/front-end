@@ -58,7 +58,6 @@ class Article extends React.Component {
             <div className="col-xs-12">
 
               <div dangerouslySetInnerHTML={markup}></div>
-
               <ul className="tag-list">
                 {
                   this.props.article.tagList.map(tag => {

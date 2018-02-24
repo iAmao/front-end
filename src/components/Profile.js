@@ -1,4 +1,5 @@
 import ArticleList from './ArticleList';
+import ArticleListSidebar from './ArticleListSidebar';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import agent from '../agent';
@@ -93,7 +94,7 @@ class Profile extends React.Component {
           <Link
             className="nav-link active"
             to={`/@${this.props.profile.username}`}>
-            My Articles
+            Articles
           </Link>
         </li>
 
@@ -139,7 +140,12 @@ class Profile extends React.Component {
                   <hr></hr>
                 </div>
 
-                <h5>Recent Logs</h5>
+                <h5>Articles</h5>
+                <ArticleListSidebar
+                pager={this.props.pager}
+                articles={this.props.articles}
+                articlesCount={this.props.articlesCount}
+                state={this.props.currentPage} />
 
               </div>
             </div>

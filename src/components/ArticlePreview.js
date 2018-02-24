@@ -4,6 +4,8 @@ import agent from '../agent';
 import { connect } from 'react-redux';
 import { ARTICLE_FAVORITED, ARTICLE_UNFAVORITED } from '../constants/actionTypes';
 import TextTruncate from 'react-text-truncate';
+import Truncate from 'react-truncate-html';
+import marked from 'marked';
 
 const FAVORITED_CLASS = 'btn btn-sm btn-primary';
 const NOT_FAVORITED_CLASS = 'btn btn-sm btn-outline-primary';
@@ -24,6 +26,8 @@ const ArticlePreview = props => {
   const favoriteButtonClass = article.favorited ?
     FAVORITED_CLASS :
     NOT_FAVORITED_CLASS;
+
+  const markup = { __html: marked(article.body, { sanitize: true },) };
 
   const handleClick = ev => {
     ev.preventDefault();
@@ -60,14 +64,10 @@ const ArticlePreview = props => {
       <Link to={`/article/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
         <p>{article.description}</p>
-        <p>
-          <TextTruncate
-            line={10}
-            truncateText=" ... "
-            text={article.body}
-            textTruncateChild={<a href="#">Read More</a>}
-          />
-        </p>
+          <Truncate lines={9} dangerouslySetInnerHTML={markup}
+            />
+            
+          <a href="#">Read More</a>
         <ul className="tag-list">
           {
             article.tagList.map(tag => {
