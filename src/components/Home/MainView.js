@@ -25,26 +25,28 @@ const YourFeedTab = props => {
 };
 
 const GlobalFeedTab = props => {
-  const clickHandler = ev => {
-    ev.preventDefault();
-    props.onTabClick('all', agent.Articles.all, agent.Articles.all());
-  };
-  return (
-    <li className="nav-item">
-      <a
-        href=""
-        className={ props.tab === 'all' ? 'nav-link active' : 'nav-link' }
-        onClick={clickHandler}>
-        Global Feed
-      </a>
-    </li>
-  );
+    const clickHandler = ev => {
+      ev.preventDefault();
+      props.onTabClick('all', agent.Articles.all, agent.Articles.all());
+    };
+    return (
+      <li className="nav-item">
+        <a
+          href=""
+          className={ props.tab === 'all' ? 'nav-link active' : 'nav-link' }
+          onClick={clickHandler}>
+          Global Feed
+        </a>
+      </li>
+    );
 };
 
 const TagFilterTab = props => {
   if (!props.tag) {
     return null;
   }
+
+  if (props.token) {
 
   return (
     <li className="nav-item">
@@ -53,6 +55,9 @@ const TagFilterTab = props => {
       </a>
     </li>
   );
+
+  }
+  return null;
 };
 
 const mapStateToProps = state => ({
@@ -66,6 +71,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const MainView = props => {
+
+  if (props.token) {
   return (
     <div className="col-md-9">
       <div className="feed-toggle">
@@ -91,6 +98,8 @@ const MainView = props => {
         currentPage={props.currentPage} />
     </div>
   );
+  };
+  return null;
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainView);
