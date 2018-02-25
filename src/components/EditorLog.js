@@ -12,7 +12,7 @@ import {
 } from '../constants/actionTypes';
 
 const mapStateToProps = state => ({
-  ...state.editor
+  ...state.editorlog
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -30,7 +30,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: UPDATE_FIELD_EDITOR, key, value })
 });
 
-class Editor extends React.Component {
+class EditorLog extends React.Component {
   constructor() {
     super();
 
@@ -116,7 +116,7 @@ class Editor extends React.Component {
                     <input
                       className="form-control"
                       type="text"
-                      placeholder="(Optional) tldr;"
+                      placeholder="FLUBBERFLBA"
                       value={this.props.description}
                       onChange={this.changeDescription} />
                   </fieldset>
@@ -175,4 +175,4 @@ class Editor extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Editor);
+export default connect(mapStateToProps, mapDispatchToProps)(EditorLog);

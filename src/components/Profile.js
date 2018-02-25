@@ -90,11 +90,12 @@ class Profile extends React.Component {
   renderTabs() {
     return (
       <ul className="nav nav-pills outline-active">
+
         <li className="nav-item">
           <Link
             className="nav-link active"
             to={`/@${this.props.profile.username}`}>
-            Articles
+            Feed
           </Link>
         </li>
 

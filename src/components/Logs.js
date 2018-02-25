@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch({ type: PROFILE_PAGE_UNLOADED })
 });
 
-class ProfileFavorites extends Profile {
+class Logs extends Profile {
   componentWillMount() {
     this.props.onLoad(page => agent.Articles.favoritedBy(this.props.match.params.username, page), Promise.all([
       agent.Profile.get(this.props.match.params.username),
@@ -50,4 +50,4 @@ class ProfileFavorites extends Profile {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileFavorites);
+export default connect(mapStateToProps, mapDispatchToProps)(Logs);

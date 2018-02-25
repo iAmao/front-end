@@ -49,8 +49,7 @@ class Home extends React.Component {
 
         <div className="container page">
           <div className="row">
-
-            <MainView />
+          <MainView />
           </div>
         </div>
 

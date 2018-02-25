@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+var Dropdown = require('react-simple-dropdown');
+var DropdownTrigger = Dropdown.DropdownTrigger;
+var DropdownContent = Dropdown.DropdownContent;
+
 
 const LoggedOutView = props => {
   if (!props.currentUser) {
@@ -42,8 +46,14 @@ const LoggedInView = props => {
         </li>
 
         <li className="nav-item">
+          <Link to="/editorlog" className="nav-link">
+            <i className="ion-compose"></i>&nbsp;New Log
+          </Link>
+        </li>
+
+        <li className="nav-item">
           <Link to="/editor" className="nav-link">
-            <i className="ion-compose"></i>&nbsp;New Post
+            <i className="ion-compose"></i>&nbsp;New Article
           </Link>
         </li>
 
