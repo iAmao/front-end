@@ -1,6 +1,7 @@
 import ArticleList from './ArticleList';
 import ArticleListSidebar from './ArticleListSidebar';
 import React from 'react';
+import { Router, Route, browserHistory } from 'react-router'
 import { Link } from 'react-router-dom';
 import agent from '../agent';
 import { connect } from 'react-redux';
@@ -10,6 +11,7 @@ import {
   PROFILE_PAGE_LOADED,
   PROFILE_PAGE_UNLOADED
 } from '../constants/actionTypes';
+import Home from '../components/Home';
 
 const EditProfileSettings = props => {
   if (props.isUser) {

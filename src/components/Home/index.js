@@ -9,6 +9,7 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
+import ArticleListSidebar from '../ArticleListSidebar';
 
 const Promise = global.Promise;
 
@@ -50,6 +51,21 @@ class Home extends React.Component {
         <div className="container page">
           <div className="row">
           <MainView />
+
+            <div className="col-md-3">
+              <div className="sidebar">
+
+                  <p>Following</p>
+
+                    <ArticleListSidebar
+                    pager={this.props.pager}
+                    articles={this.props.articles}
+                    articlesCount={this.props.articlesCount}
+                    state={this.props.currentPage} />
+
+                </div>
+            </div>
+
           </div>
         </div>
 
