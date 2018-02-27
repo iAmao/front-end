@@ -2,6 +2,7 @@ import Banner from './Banner';
 import MainView from './MainView';
 import React from 'react';
 import Tags from './Tags';
+import Following from './Following';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
@@ -9,14 +10,16 @@ import {
   HOME_PAGE_UNLOADED,
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
-import ArticleListSidebar from '../ArticleListSidebar';
+import ArticleList from '../ArticleList';
 
 const Promise = global.Promise;
 
 const mapStateToProps = state => ({
   ...state.home,
   appName: state.common.appName,
-  token: state.common.token
+  token: state.common.token,
+  currentUser: state.common.currentUser,
+  profile: state.profile
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -50,22 +53,20 @@ class Home extends React.Component {
 
         <div className="container page">
           <div className="row">
-          <MainView />
+            <MainView />
 
             <div className="col-md-3">
               <div className="sidebar">
 
-                  <p>Following</p>
+                <p>Following</p>
+                <div>HOWDY</div>
+                {this.props.currentUser.followedusers}
+                <Following
+                  tags={this.props.currentUser.followedusers}
+                  onClickTag={this.props.onClickTag} />
 
-                    <ArticleListSidebar
-                    pager={this.props.pager}
-                    articles={this.props.articles}
-                    articlesCount={this.props.articlesCount}
-                    state={this.props.currentPage} />
-
-                </div>
+              </div>
             </div>
-
           </div>
         </div>
 
