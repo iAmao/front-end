@@ -22,7 +22,6 @@ const ListPagination = props => {
     if(props.pager) {
       props.onSetPage(page, props.pager(page));
     }else {
-      alert("it went here for some reason")
       props.onSetPage(page, agent.Articles.all(page))
     }
   };

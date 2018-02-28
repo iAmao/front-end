@@ -18,7 +18,7 @@ import {
 } from '../constants/actionTypes';
 
 const defaultState = {
-  appName: 'Different Name',
+  appName: 'Thots Central',
   token: null,
   viewChangeCounter: 0
 };

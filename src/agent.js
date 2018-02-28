@@ -47,7 +47,7 @@ const Articles = {
   all: page =>
     requests.get(`/articles?${limit(10, page)}`),
   byAuthor: (author, page) =>
-    requests.get(`/articles?author=${encode(author)}&${limit(5, page)}`),
+    requests.get(`/articles?author=${encode(author)}&${limit(10, page)}`),
   byTag: (tag, page) =>
     requests.get(`/articles?tag=${encode(tag)}&${limit(10, page)}`),
   del: slug =>
@@ -78,8 +78,6 @@ const Comments = {
 };
 
 const Profile = {
-  getProfile: profileId =>
-    requests.get(`/followinfo/${profileId}`),
   follow: username =>
     requests.post(`/profiles/${username}/follow`),
   get: username =>
