@@ -78,6 +78,8 @@ const Comments = {
 };
 
 const Profile = {
+  getProfile: profileId =>
+    requests.get(`/followinfo/${profileId}`),
   follow: username =>
     requests.post(`/profiles/${username}/follow`),
   get: username =>

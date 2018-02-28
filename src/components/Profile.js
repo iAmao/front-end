@@ -154,7 +154,7 @@ class Profile extends React.Component {
             </div>
 
 
-            <div className="col-md">
+            <div className="col-md-9">
 
               <div className="articles-toggle">
                 {this.renderTabs()}

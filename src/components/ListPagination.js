@@ -9,7 +9,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const ListPagination = props => {
-  if (props.articlesCount <= 10) {
+  if (props.articlesCount <= 5) {
     return null;
   }
 
@@ -22,6 +22,7 @@ const ListPagination = props => {
     if(props.pager) {
       props.onSetPage(page, props.pager(page));
     }else {
+      alert("it went here for some reason")
       props.onSetPage(page, agent.Articles.all(page))
     }
   };

@@ -63,7 +63,7 @@ const ArticlePreview = props => {
 
       <Link to={`/article/${article.slug}`} className="preview-link">
         <h1>{article.title}</h1>
-        <p>{article.description}</p>
+        <p><big>{article.description}</big></p>
           <Truncate lines={9} dangerouslySetInnerHTML={markup}
             />
             

@@ -262,6 +262,8 @@ body {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  margin-left: .5rem;
+  margin-right: .5rem;
   color: #373a3c;
   background-color: #fff; }
 
@@ -270,10 +272,14 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
+  margin-left: .5rem;
+  margin-right: .5rem;
   margin-bottom: .5rem; }
 
 p {
   margin-top: 0;
+  margin-left: .5rem;
+  margin-right: .5rem;
   margin-bottom: 1rem; }
 
 abbr[title],
@@ -5096,6 +5102,14 @@ ul.tag-list {
 .nav-link:hover {
   transition: 0.1s all; }
 
+.coolstylefollowing{
+  color: #aaa; 
+  border-radius: 0px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+}
+
 .nav-pills.outline-active .nav-link {
   border-radius: 0px;
   border: none;
@@ -5247,9 +5261,9 @@ footer {
 
 .article-page .article-content p {
   font-family: 'Source Serif Pro', serif;
-  font-size: 1.2rem;
-  line-height: 1.8rem;
-  margin-bottom: 2rem; }
+  font-size: 1.0rem;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;}
 
 .article-page .article-content h1, .article-page .article-content h2, .article-page .article-content h3, .article-page .article-content h4, .article-page .article-content h5, .article-page .article-content h6 {
   font-weight: 500 !important;

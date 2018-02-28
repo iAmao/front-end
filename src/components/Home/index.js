@@ -11,6 +11,7 @@ import {
   APPLY_TAG_FILTER
 } from '../../constants/actionTypes';
 import ArticleList from '../ArticleList';
+import { Link } from 'react-router-dom';
 
 const Promise = global.Promise;
 
@@ -55,17 +56,22 @@ class Home extends React.Component {
           <div className="row">
             <MainView />
 
-            <div className="col-md-3">
-              <div className="sidebar">
+            <div className="col-md">
 
-                <p>Following</p>
-                <div>HOWDY</div>
-                {this.props.currentUser.followedusers}
-                <Following
-                  tags={this.props.currentUser.followedusers}
-                  onClickTag={this.props.onClickTag} />
+                <div className="coolstylefollowing">Following</div>
+                <hr></hr>
 
-              </div>
+                {this.props.currentUser.followingNames.map(function(object){
+                    return (
+                    <div>
+                      <Link to={`/@${object[0]}`}>
+                        <img src={object[3]|| 'https://static.productionready.io/images/smiley-cyrus.jpg'} className="user-img" height="25"/>
+                        <h7>&nbsp; {object[1]} {object[2]}</h7>
+                      </Link>
+                    </div>
+                    )
+                  }
+                  )}
             </div>
           </div>
         </div>
